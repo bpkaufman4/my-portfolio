@@ -1,17 +1,62 @@
 import React from "react";
 
-function Nav() {
-    const links = [
-        {name: "about", description: "Information about who I am, where I came from, and what I'm doing now."},
-        {name: "portfolio", description: "Links to web sites and applications that I have worked on."},
-        {name: "contact", description: "A form to fill out to contact me."},
-        {name: "resume", description: "My resume."}
-    ]
+function Nav(props) {
+    const {
+        setAboutSelected,
+        setContactSelected,
+        setPortfolioSelected,
+        setResumeSelected
+    } = props;
 
-    function linkSelected(name) {
-        console.log(`${name} clicked`);
+    var aboutEl = document.getElementById('about');
+    var portfolioEl = document.getElementById('portfolio');
+    var contactEl = document.getElementById('contact');
+    var resumeEl = document.getElementById('resume');
+
+    var activate = function(activeLink) {
+        activeLink.classList.add('active');
+    };
+
+    var inactive = function(link1, link2, link3) {
+        link1.classList.remove('active');
+        link2.classList.remove('active');
+        link3.classList.remove('active');
     }
+
+    const clickContact = function() {
+        setContactSelected(true);
+        setResumeSelected(false);
+        setPortfolioSelected(false);
+        setAboutSelected(false);
+        activate(contactEl);
+        inactive(resumeEl, portfolioEl, aboutEl);
+      }
+      const clickResume = function() {
+        setContactSelected(false);
+        setResumeSelected(true);
+        setPortfolioSelected(false);
+        setAboutSelected(false);
+        activate(resumeEl);
+        inactive(contactEl, portfolioEl, aboutEl);
+      }
+      const clickPortfolio = function() {
+        setContactSelected(false);
+        setResumeSelected(false);
+        setPortfolioSelected(true);
+        setAboutSelected(false);
+        activate(portfolioEl);
+        inactive(resumeEl, contactEl, aboutEl);
+      }
+      const clickAbout = function() {
+        setContactSelected(false);
+        setResumeSelected(false);
+        setPortfolioSelected(false);
+        setAboutSelected(true);
+        activate(aboutEl);
+        inactive(resumeEl, portfolioEl, contactEl);
+      }
     
+
     return (
         <header>
             <h2>
@@ -19,9 +64,10 @@ function Nav() {
             </h2>
             <nav>
                 <ul>
-                    {links.map((link) => (
-                        <li className="nav-link" key={link.name}><span onClick={() => linkSelected(link.name)}>{link.name}</span></li>
-                    ))}
+                    <li><span class={'link active'} id={"about"} onClick={clickAbout}>About Me</span></li>
+                    <li><span class={'link'} id={"portfolio"} onClick={clickPortfolio}>My Portfolio</span></li>
+                    <li><span class={'link'} id={"resume"} onClick={clickResume}>My Resume</span></li>
+                    <li><span class={'link'} id={"contact"} onClick={clickContact}>Contact Me</span></li>
                 </ul>
             </nav>
         </header>
