@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Contact() {
+
+    const [formState, setFormState] = useState({ name: '', email: '', message: ''});
+    const { name, email, message } = formState;
+
+    var handleChange = function(e) {
+        setFormState({...formState, [e.target.name]: e.target.value })
+    }
+
+    var handleSubmit = function(e) {
+        e.preventDefault();
+        console.log(formState);
+    }
+
     return (
-        <section className="my-5">
-            <h1>Contact me</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate mi sit amet mauris commodo quis imperdiet. Lacinia at quis risus sed vulputate odio ut enim. Mattis nunc sed blandit libero volutpat sed cras. Nulla posuere sollicitudin aliquam ultrices sagittis orci. Integer eget aliquet nibh praesent tristique magna sit amet purus. Elit at imperdiet dui accumsan sit amet. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Rhoncus urna neque viverra justo nec. Accumsan lacus vel facilisis volutpat est velit egestas dui. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Arcu cursus euismod quis viverra nibh cras pulvinar.</p>
+        <section>
+            <h1>Reach out</h1>
+            <form id="contact-form">
+                <div>
+                    <label htmlFor="name">Name:</label>
+                    <input type="text" name="name" defaultValue={name} onChange={handleChange}></input>
+                </div>
+                <div>
+                    <label htmlFor="email">Email address:</label>
+                    <input type="email" name="email" defaultValue={email} onChange={handleChange}></input>
+                </div>
+                <div>
+                    <label htmlFor="message">Message:</label>
+                    <textarea name="message" rows="5" defaultValue={message} onChange={handleChange}></textarea>
+                </div>
+                <button type="submit" onSubmit={handleSubmit}>Submit</button>
+            </form>
         </section>
     );
 }
