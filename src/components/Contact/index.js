@@ -16,19 +16,16 @@ function Contact() {
 
     return (
         <section>
-            <h1>Reach out</h1>
+            <h2>Reach out</h2>
             <form id="contact-form">
                 <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" name="name" defaultValue={name} onChange={handleChange} required></input>
+                    <input placeholder="Name" type="text" name="name" defaultValue={name} onChange={handleChange} required></input>
                 </div>
                 <div>
-                    <label htmlFor="email">Email address:</label>
-                    <input type="email" name="email" defaultValue={email} onChange={handleChange} required></input>
+                    <input placeholder="Email" type="email" name="email" defaultValue={email} onChange={handleChange} required></input>
                 </div>
                 <div>
-                    <label htmlFor="message">Message:</label>
-                    <textarea name="message" rows="5" defaultValue={message} onChange={handleChange} required></textarea>
+                    <textarea placeholder="Message" name="message" rows="5" defaultValue={message} onChange={handleChange} required></textarea>
                 </div>
                 <button type="submit" onSubmit={handleSubmit}>Submit</button>
             </form>

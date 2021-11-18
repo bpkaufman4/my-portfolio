@@ -15,8 +15,8 @@ function Portfolio() {
         <section className="my-5">
             {projects.map((project) => (
                 <>
-                    <div>
-                        <h2><a href={project.url}>{project.name}</a></h2>
+                    <div id="project">
+                        <h3><a href={project.url}>{project.name}</a></h3>
                         <a href={project.url}><img alt={`screenshot of the ${project.name} homepage`} src={project.image}/></a>
                     </div>
                 </>
@@ -26,10 +26,3 @@ function Portfolio() {
 }
 
 export default Portfolio;
-
-
-
-// https://bpkaufman4.github.io/coding-quiz/
-// 
-// 
-// https://bpkaufman4.github.io/challenge-2/
