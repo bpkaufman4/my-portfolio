@@ -15,8 +15,8 @@ function Contact() {
     }
 
     return (
-        <section>
-            <h2>Reach out</h2>
+        <section id="contact-form">
+            <h2 id="reach">Reach out</h2>
             <form id="contact-form">
                 <div>
                     <input placeholder="Name" type="text" name="name" defaultValue={name} onChange={handleChange} required></input>
