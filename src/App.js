@@ -5,12 +5,13 @@ import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
+import Footer from './components/Footer';
 
 function App() {
   const [contactSelected, setContactSelected] = useState(false);
   const [resumeSelected, setResumeSelected] = useState(false);
   const [portfolioSelected, setPortfolioSelected] = useState(false);
-  const [aboutSelected, setAboutSelected] = useState(true);
+  const [aboutSelected, setAboutSelected] = useState(false);
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <About></About>
         )}
       </main>
+      <Footer></Footer>
     </div>
   );
 
